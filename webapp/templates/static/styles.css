@@ -1,0 +1,18 @@
+body{
+    background-color: #2b1616;
+  }
+  
+  header .content h3{
+    margin-bottom: 1rem;
+    color: rgb(0, 119, 255);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  
+  header .content h1{
+    margin-bottom: 1rem;
+    color: rgb(0, 236, 253);
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 4rem;
+  }

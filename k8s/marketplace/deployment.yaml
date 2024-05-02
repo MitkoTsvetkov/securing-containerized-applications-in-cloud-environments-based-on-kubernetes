@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketplace
+  labels:
+    app: marketplace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marketplace
+  template:
+    metadata:
+      labels:
+        app: marketplace
+    spec:
+      containers:
+      - name: marketplace
+        image: gcr.io/marketplace-415016/marketplace-image:1
+        ports:
+        - containerPort: 8000
+        securityContext:
+          capabilities:
+            drop:
+              - all
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - name: write
+          mountPath: /write
+      volumes:
+      - name: write
+        emptyDir: {}
